@@ -30,7 +30,7 @@ highestNr = 0
 for j in range(0, len(matrix)):
     for i in range(0, len(matrix[j])-3):
         if ( highestNr < (int(matrix[j][i]) * int(matrix[j][i+1]) * int(matrix[j][i+2]) * int(matrix[j][i+3])) ):
-             highestNr = (int(matrix[j][i]) * int(matrix[j][i+1]) * int(matrix[j][i+2]) * int(matrix[j][i+3]))
+            highestNr = (int(matrix[j][i]) * int(matrix[j][i+1]) * int(matrix[j][i+2]) * int(matrix[j][i+3]))
 
 # sjekker vertikalt
 for j in range(0, len(matrix)):
@@ -38,8 +38,20 @@ for j in range(0, len(matrix)):
         if ( highestNr < int(matrix[i][j]) * int(matrix[i+1][j]) * int(matrix[i+2][j]) * int(matrix[i+3][j]) ):
             highestNr = int(matrix[i][j]) * int(matrix[i+1][j]) * int(matrix[i+2][j]) * int(matrix[i+3][j])
 
+# sjekker diagonalt (ned mot høyre)
+for j in range(0, len(matrix)-3):
+    for i in range(0, len(matrix[j])-3):
+        if ( highestNr < int(matrix[j][i]) * int(matrix[j+1][i+1]) * int(matrix[j+2][i+2]) * int(matrix[j+3][i+3]) ):
+            highestNr = int(matrix[j][i]) * int(matrix[j+1][i+1]) * int(matrix[j+2][i+2]) * int(matrix[j+3][i+3])
+
+ # sjekker diagonalt (ned mot venstre)
+for j in range(0, len(matrix)-3):
+    for i in range(3, len(matrix[j])):
+        if ( highestNr < int(matrix[j][i]) * int(matrix[j+1][i-1]) * int(matrix[j+2][i-2]) * int(matrix[j+3][i-3]) ):
+            highestNr = int(matrix[j][i]) * int(matrix[j+1][i-1]) * int(matrix[j+2][i-2]) * int(matrix[j+3][i-3])
+
 # final print
-print (highestNr)             
+print (highestNr)
 print("")
 wait = input("PRESS ENTER TO CLOSE")
 exit()
