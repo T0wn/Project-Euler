@@ -32,7 +32,11 @@ for j in range(0, len(matrix)):
         if ( highestNr < (int(matrix[j][i]) * int(matrix[j][i+1]) * int(matrix[j][i+2]) * int(matrix[j][i+3])) ):
              highestNr = (int(matrix[j][i]) * int(matrix[j][i+1]) * int(matrix[j][i+2]) * int(matrix[j][i+3]))
 
-
+# sjekker vertikalt
+for j in range(0, len(matrix)):
+    for i in range(0, len(matrix[j])-3):
+        if ( highestNr < int(matrix[i][j]) * int(matrix[i+1][j]) * int(matrix[i+2][j]) * int(matrix[i+3][j]) ):
+            highestNr = int(matrix[i][j]) * int(matrix[i+1][j]) * int(matrix[i+2][j]) * int(matrix[i+3][j])
 
 # final print
 print (highestNr)             
