@@ -1,5 +1,7 @@
 
 import math
+import time
+import os
 
 # CTN initialise
 currentTriangleNumber = 1
@@ -19,13 +21,19 @@ def getNumberOfDivisors(number):
             divisors += 1
     return ((divisors * 2) - 1)
 
+start = time.time()
+print("Working...")
 
 while (True):
     if (getNumberOfDivisors(currentTriangleNumberValue) > 500):
-        print(currentTriangleNumberValue)
         break
     increseCTN(1)
 
+stop = time.time()
+os.system('cls')
+
+print(currentTriangleNumberValue)
+print("Cumputing time: " + str(stop-start) + " seconds")
 
 print("")
 wait = input("PRESS ENTER TO CLOSE")
