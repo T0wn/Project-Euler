@@ -1,35 +1,21 @@
 #include <time.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <stdio.h>
 
-bool isTripple(int nr);
-bool isFive(int nr);
-
 int main() {
-    int totalSum = 0;
+    int sum = 0;
 
-	for(int i = 0; i < 1000; i++) {
-        if ( isTripple(i) | isFive(i) ) {
-            totalSum += i;
-        }
+    for(int i = 3; i < 1000; i += 3) {
+        sum += i;
+    }
+    for(int i = 5; i < 1000; i += 5) {
+        sum += i;
+    }
+    // fjerner tall som blir lagt til 2 ganger
+    for(int i = 15; i < 1000; i += 15) {
+        sum -= i;
     }
 
-    printf("%i\n", totalSum);
+    printf("%i\n", sum);
 	return 0;
-}
-
-
-bool isTripple(int nr) {
-    if (nr % 3 == 0) {
-        return true;
-    }
-    return false;
-}
-
-bool isFive(int nr) {
-    if (nr % 5 == 0) {
-        return true;
-    }
-    return false;
 }
