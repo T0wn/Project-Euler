@@ -1,4 +1,4 @@
-
+import sympy.ntheory as nt
 
 primtall = [2]
 
@@ -12,7 +12,7 @@ while ( x < 2000000 ):
             isPrim = False
             break
 
-    if (isPrime(x):
+    if (nt.isprime(x)):
         primtall.append(x)
         summen += x
 
