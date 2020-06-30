@@ -1,5 +1,6 @@
 
 data = [
+    [75],
     [95,64],
     [17,47,82],
     [18,35,87,10],
@@ -17,9 +18,18 @@ data = [
 ]
 
 highest = 0
-summary = 75
-pos = 0
-for a in data:
-    summary = summary + max(a[pos:pos+2])
+def add_and_move(x, y, summary):
+    global highest
 
-print(summary)
+    if (y == len(data)):
+        if (summary > highest):
+            highest = summary
+    else:
+        nr = summary + data[y][x]
+        add_and_move(x, y + 1, nr)
+        add_and_move(x + 1, y + 1, nr)
+        
+
+add_and_move(0, 0, 0)
+print(highest)
+
